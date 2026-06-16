@@ -1,0 +1,8 @@
+﻿path: dataset/esophagus_resized_yolo_nopadding
+
+train: images/train
+val: images/val
+
+nc: 3
+
+names: ['inlet', 'lumen', 'stenosis']

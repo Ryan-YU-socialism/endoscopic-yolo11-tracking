@@ -1,0 +1,8 @@
+﻿path: dataset/ercp_labelled_0606_resized_yolo_nopadding
+
+train: images/train
+val: images/val
+
+nc: 3
+
+names: ['papillary orifice', 'lumen', 'calculus']

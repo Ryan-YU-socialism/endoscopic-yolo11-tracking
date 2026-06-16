@@ -1,0 +1,8 @@
+﻿path: dataset/ureter_labelled_training_resized_yolo
+
+train: images/train
+val: images/val
+
+nc: 3
+
+names: ['ureteral orifice', 'ureteral lumen', 'polyps']

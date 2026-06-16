@@ -1,0 +1,8 @@
+﻿path: dataset/ercp_labelled_training_0606_resized_720_yolo
+
+train: images/train
+val: images/val
+
+nc: 3
+
+names: ['papillary orifice', 'lumen', 'calculus']
