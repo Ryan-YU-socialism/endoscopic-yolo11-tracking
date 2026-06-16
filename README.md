@@ -2,7 +2,15 @@
 
 YOLO11-based detection and temporal tracking pipeline for endoscopic video analysis. The project contains training scripts, dataset preparation utilities, Kalman-smoothed inference, and optional YOLO + OSTrack fusion for more stable object tracking in ERCP, ureter, and esophagus videos.
 
-This repository is prepared for public portfolio use. Datasets, trained checkpoints, prediction outputs, and videos are intentionally excluded.
+This repository is prepared for public portfolio use. Private datasets, trained checkpoints, raw videos, and prediction outputs are intentionally excluded. A short demo clip is included to show the automatic annotation result.
+
+## Demo
+
+Automatic annotation result:
+
+<video src="docs/demo/annotated.mp4" controls width="100%"></video>
+
+If the video preview does not render in your browser, open it directly: [docs/demo/annotated.mp4](docs/demo/annotated.mp4).
 
 ## Highlights
 
@@ -16,18 +24,19 @@ This repository is prepared for public portfolio use. Datasets, trained checkpoi
 
 ```text
 .
-├── train_ercp.py                 # YOLO11 training entrypoint for ERCP
-├── train_ureter.py               # YOLO11 training entrypoint for ureter videos
-├── train_esophagus.py            # YOLO11 training entrypoint for esophagus videos
-├── predict_ercp.py               # Image-folder prediction helper
-├── predict_ureter.py             # Image-folder prediction helper
-├── detect_kalman_*.py            # YOLO detection + Kalman/EMA video smoothing
-├── detect_track_*.py             # YOLO + OSTrack + Kalman fusion pipelines
-├── yolo_to_labelme_json.py       # Convert YOLO prediction txt files to LabelMe JSON
-└── dataset/
-    ├── augment_*.py              # Dataset augmentation utilities
-    ├── visualize_labels.py       # Render YOLO labels for QA
-    └── */data.yaml, classes.txt  # Dataset metadata only; images/labels are excluded
++-- train_ercp.py                 # YOLO11 training entrypoint for ERCP
++-- train_ureter.py               # YOLO11 training entrypoint for ureter videos
++-- train_esophagus.py            # YOLO11 training entrypoint for esophagus videos
++-- predict_ercp.py               # Image-folder prediction helper
++-- predict_ureter.py             # Image-folder prediction helper
++-- detect_kalman_*.py            # YOLO detection + Kalman/EMA video smoothing
++-- detect_track_*.py             # YOLO + OSTrack + Kalman fusion pipelines
++-- yolo_to_labelme_json.py       # Convert YOLO prediction txt files to LabelMe JSON
++-- docs/demo/annotated.mp4       # Automatic annotation demo clip
++-- dataset/
+    +-- augment_*.py              # Dataset augmentation utilities
+    +-- visualize_labels.py       # Render YOLO labels for QA
+    +-- */data.yaml, classes.txt  # Dataset metadata only; images/labels are excluded
 ```
 
 ## Install
@@ -42,25 +51,25 @@ For GPU training, install the PyTorch build that matches your CUDA version befor
 
 ## Data And Weights
 
-The repository does not include datasets, trained weights, run outputs, or videos.
+The repository does not include private datasets, trained weights, raw videos, or run outputs.
 
 Expected local folders:
 
 ```text
 weights/
-├── ercp_best.pt
-├── ureter_best.pt
-├── esophagus_best.pt
-└── yolo11x.pt
++-- ercp_best.pt
++-- ureter_best.pt
++-- esophagus_best.pt
++-- yolo11x.pt
 
 data/
-├── images/
-│   ├── ercp_val/
-│   └── ureter_val/
-└── videos/
-    ├── ercp/
-    ├── ureter/
-    └── esophagus/
++-- images/
+|   +-- ercp_val/
+|   +-- ureter_val/
++-- videos/
+    +-- ercp/
+    +-- ureter/
+    +-- esophagus/
 ```
 
 Download options:
@@ -114,4 +123,4 @@ python detect_track_ercp.py
 
 ## Resume-Friendly Summary
 
-Built an endoscopic video perception pipeline using YOLO11 fine-tuning and Kalman/OSTrack temporal fusion, including dataset augmentation, label QA, multi-GPU batch inference, and reproducible training/prediction scripts without exposing private medical datasets or model checkpoints.
+Built an endoscopic video perception pipeline using YOLO11 fine-tuning and Kalman/OSTrack temporal fusion, including dataset augmentation, label QA, multi-GPU batch inference, reproducible training/prediction scripts, and demo visualization without exposing private medical datasets or model checkpoints.

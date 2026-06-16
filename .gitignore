@@ -37,3 +37,7 @@ dataset/**/*_augmented*/
 *.bmp
 *.tif
 *.tiff
+
+!docs/
+!docs/demo/
+!docs/demo/*.mp4
